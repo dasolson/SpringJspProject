@@ -44,12 +44,12 @@ public class RecipeRestController {
    @GetMapping("/recipe/detail_vue/")
    public ResponseEntity<Map> recipe_detail(@RequestParam("no") int no) {
 	   Map map = new HashMap();
-	   try
-	   {
+	   try {
 		   RecipeDetailVO vo = rService.recipeDetailData(no);
 		   String[] datas = vo.getFoodmake().split("\n");
 		   List<String> tList = new ArrayList<String>();
 		   List<String> iList = new ArrayList<String>();
+		   
 		   for(String s:datas) {
 			   StringTokenizer st = new StringTokenizer(s,"^");
 			   tList.add(st.nextToken());
