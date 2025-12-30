@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
 
+import com.sist.web.vo.RecipeDetailVO;
 import com.sist.web.vo.RecipeVO;
 
 public interface RecipeService {
@@ -21,5 +22,6 @@ public interface RecipeService {
 			+ "WHERE no IN(SELECT no FROM recipe INTERSECT SELECT no FROM recipeDetail)")
 	 */		
 	public int recipeTotalPage();
+	public RecipeDetailVO recipeDetailData(int no);
 	
 }
