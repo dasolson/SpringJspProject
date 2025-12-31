@@ -9,7 +9,7 @@ const initialState = () => ({
 	sessionId : '',
 	updateMsg : {}
 })
-const useReplyStore=defineStore('reply',{
+const useReplyStore = defineStore('reply', {
 		// state
 		state : initialState,
 		// getters

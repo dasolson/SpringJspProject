@@ -21,7 +21,7 @@ p {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.nav-link{
+.nav-link {
   cursor: pointer;
 }
 </style>
@@ -37,48 +37,48 @@ p {
 			</c:if>		
 		</div>
 	</div>
-  <div class="container" id="list_app" style="margin-top: 30px">
-   <div class="row">
-     <div class="col-md-3" v-for="(vo,index) in store.list" :key="index">
-	    <div class="thumbnail">
-	      <a :href="'/detail?no='+vo.no">
-	        <img :src="vo.poster" :title="vo.title" style="width:240px;height: 150px">
-	        <div class="caption">
-	          <p>{{vo.chef}}</p>
-	        </div>
-	      </a>
-	    </div>
-	  </div>
-   </div>
-   <div class="row text-center" style="margin-top: 10px">
-     <ul class="pagination">
-       <li v-if="store.startPage>1"><a class="nav-link" @click="store.movePage(store.startPage-1)">&laquo;</a></li>
-       <li v-for="i in store.range" :class="i===store.curpage?'active':''"><a class="nav-link" @click="store.movePage(i)">{{i}}</a></li>
-       <li v-if="store.endPage<store.totalpage"><a class="nav-link" @click="store.movePage(store.endPage+1)">&raquo;</a></li>
-     </ul>
-   </div>
-  </div>
-  <script src="/js/axios.js"></script>
-  <script src="/js/recipeStore.js"></script>
-  <script>
-   const {createApp,onMounted} = Vue
-   const {createPinia} = Pinia
-   
-   const recipeApp=createApp({
-	   setup() {
-		   const store=useRecipeStore()
-		   // useEffect(()=>{})
-		   onMounted(() => {
-			   store.recipeListData()
-		   })
+	<div class="container" id="list_app" style="margin-top: 30px">
+		<div class="row">
+			<div class="col-md-3" v-for="(vo,index) in store.list" :key="index">
+				<div class="thumbnail">
+					<a :href="'/detail?no='+vo.no">
+						<img :src="vo.poster" :title="vo.title" style="width:240px;height: 150px">
+					<div class="caption">
+						<p>{{vo.chef}}</p>
+					</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="row text-center" style="margin-top: 10px">
+			<ul class="pagination">
+				<li v-if="store.startPage>1"><a class="nav-link" @click="store.movePage(store.startPage-1)">&laquo;</a></li>
+				<li v-for="i in store.range" :class="i===store.curpage?'active':''"><a class="nav-link" @click="store.movePage(i)">{{i}}</a></li>
+				<li v-if="store.endPage<store.totalpage"><a class="nav-link" @click="store.movePage(store.endPage+1)">&raquo;</a></li>
+			</ul>
+		</div>
+	</div>
+	<script src="/js/axios.js"></script>
+	<script src="/js/recipeStore.js"></script>
+	<script>
+	  const {createApp,onMounted} = Vue
+	  const {createPinia} = Pinia
+	  
+	  const recipeApp = createApp({
+	    setup() {
+		    const store = useRecipeStore()
+		    // useEffect(()=>{})
+		    onMounted(() => {
+			    store.recipeListData()
+		    })
 		   
-		   return {
-			   store
-		   }
-	   }
-   })
-   recipeApp.use(createPinia())
-   recipeApp.mount("#list_app")
+		    return {
+			    store
+		    }
+	    }
+	  })
+	  recipeApp.use(createPinia())
+	  recipeApp.mount("#list_app")
   </script>
 </body>
 </html>

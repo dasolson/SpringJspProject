@@ -18,10 +18,8 @@ public interface ReplyMapper {
 		  +"FROM comment_3 "
 		  +"WHERE cno=#{cno} AND type=#{type} "
           +"ORDER BY no DESC")
-   public List<ReplyVO> replyListData(
-		    @Param("cno") Integer cno,
-		    @Param("type") Integer type
-		  );
+   public List<ReplyVO> replyListData(@Param("cno") Integer cno, @Param("type") Integer type);
+   
    @Insert("INSERT INTO comment_3 VALUES("
 		  +"(SELECT NVL(MAX(no)+1,1) FROM comment_3),"
 		  +"#{cno}, #{type}, #{id}, #{name}, #{msg}, SYSDATE)")

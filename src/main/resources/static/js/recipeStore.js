@@ -1,17 +1,17 @@
 const {defineStore} = Pinia
 // replyStore 
-const useRecipeStore=defineStore('recipe',{
+const useRecipeStore = defineStore('recipe', {
 	// state : 공통 사용 변수 , props 
 	state:() => ({
-		list:[],
-		curpage:1,
-		totalpage:0,
-		startPage:0,
-		endPage:0,
-		detail:{
-			vo:{},
-			tList:[],
-			iList:[]
+		list : [],
+		curpage : 1,
+		totalpage : 0,
+		startPage : 0,
+		endPage : 0,
+		detail : {
+			vo : {},
+			tList : [],
+			iList : []
 		}
 	}),
 	getters : {

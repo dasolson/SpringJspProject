@@ -21,45 +21,43 @@
 </style>
 </head>
 <body>
-  <div class="container">
-   <h3 class="text-center">로그인</h3>
-   <div class="row">
-     <table class="table">
-       <tbody>
-        <tr>
-          <th width=20%>ID</th>
-          <td width=80%>
-           <input type=text size=20 ref="idRef" class="input-sm" v-model="store.id">
-          </td>
-        </tr>
-        <tr>
-          <th width=20%>PW</th>
-          <td width=80%>
-           <input type=password size=20 ref="pwdRef" class="input-sm" v-model="store.pwd">
-          </td>
-        </tr>
-        <tr>
-          <td class="text-center" colspan="2">
-            <button type="button" class="btn-sm btn-info" @click="store.login(idRef,pwdRef)">로그인</button>
-            <button type="button" class="btn-sm btn-warning"
-             onclick="javascript:history.back()"
-            >취소</button>
-          </td>
-        </tr>
-       </tbody>
-     </table>
-   </div>
+	<div class="container">
+	 	<h3 class="text-center">로그인</h3>
+	  <div class="row">
+		 	<table class="table">
+			 	<tbody>
+				  <tr>
+					  <th width=20%>ID</th>
+					  <td width=80%>
+					  	<input type=text size=20 ref="idRef" class="input-sm" v-model="store.id">
+					  </td>
+				  </tr>
+				  <tr>
+					  <th width=20%>PW</th>
+					  <td width=80%>
+					  	<input type=password size=20 ref="pwdRef" class="input-sm" v-model="store.pwd">
+					  </td>
+				  </tr>
+				  <tr>
+					  <td class="text-center" colspan="2">
+					  	<button type="button" class="btn-sm btn-info" @click="store.login(idRef,pwdRef)">로그인</button>
+					  	<button type="button" class="btn-sm btn-warning" onclick="javascript:history.back()">취소</button>
+					  </td>
+				  </tr>
+			  </tbody>
+		  </table>
+	  </div>
   </div>
   <script src="/js/axios.js"></script>
   <script src="/js/memberStore.js"></script>
   <script>
-    const {createApp,onMounted,ref} = Vue
+    const {createApp, onMounted, ref} = Vue
     const {createPinia} = Pinia
-    const logApp=createApp({
-    	setup(){
-    		const store=useMemberStore()
-    		const idRef=ref(null)
-    		const pwdRef=ref(null)
+    const logApp = createApp({
+    	setup() {
+    		const store = useMemberStore()
+    		const idRef = ref(null)
+    		const pwdRef = ref(null)
     		
     		return {
     			store,

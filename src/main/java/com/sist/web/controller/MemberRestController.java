@@ -1,7 +1,6 @@
 package com.sist.web.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,23 +16,15 @@ public class MemberRestController {
     private final MemberService mService;
     
     @GetMapping("/member/login_vue/")
-    public ResponseEntity<MemberVO> login_vue(
-      @RequestParam("id") String id,
-      @RequestParam("pwd") String pwd,
-      HttpSession session
-    )
-    {
-    	 MemberVO vo=new MemberVO();
-    	 try
-    	 {
-    		 vo=mService.isLogin(id, pwd);
-    		 if(vo.getMsg().equals("OK"))
-    		 {
+    public ResponseEntity<MemberVO> login_vue(@RequestParam("id") String id, @RequestParam("pwd") String pwd, HttpSession session) {
+    	 MemberVO vo = new MemberVO();
+    	 try {
+    		 vo = mService.isLogin(id, pwd);
+    		 if(vo.getMsg().equals("OK")) {
     			 session.setAttribute("id", vo.getId());
     			 session.setAttribute("name", vo.getName());
     		 }
-    	 }catch(Exception ex)
-    	 {
+    	 }catch(Exception ex) {
     		 return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR); 
     	 }
     	 return new ResponseEntity<>(vo,HttpStatus.OK);
