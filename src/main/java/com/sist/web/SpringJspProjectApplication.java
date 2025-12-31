@@ -119,8 +119,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
   *         = Docker / EC2 / RDS / CI/CD 
   *         
   *         ----------------------------------------------------
-  *         Security / Batch / Kafka / WenSocket : 선택 (옵션)
-  *         
+  *         Security / Batch / Kafka / WenSocket : 선택 (옵션)         
   *         ----------------------------------------------------
   *         Front-End
   *             = 자바스크립트
@@ -134,7 +133,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringJspProjectApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringJspProjectApplication.class, args);
+		SpringApplication.run(SpringJspProjectApplication.class, args);      
 	}
 
 }
